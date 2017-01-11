@@ -56,8 +56,9 @@ namespace Notepad
             MyPanel panel = new MyPanel();
             MyTabPage tab = new MyTabPage(panel);
             tab.Controls.Add(panel);
-            tab.Text = "New File";
+            tab.Text = "New";
             tabControl1.TabPages.Add(tab);
+            tabControl1.SelectedTab = tab;
 
         }
 
