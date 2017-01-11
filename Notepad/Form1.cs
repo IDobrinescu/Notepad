@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,22 +100,17 @@ namespace Notepad
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Create an instance of the open file dialog box.
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            MyTabPage tabPage = (MyTabPage)tabControl1.SelectedTab;
+            SaveFileDialog savefile = new SaveFileDialog();
+            // set a default file name
+            savefile.FileName = "unknown.txt";
+            // set filters - this can be done in properties as well
+            savefile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
-            // Set filter options and filter index.
-            openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 1;
-
-            openFileDialog1.Multiselect = true;
-
-
-            // Process input if the user clicked OK.
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (savefile.ShowDialog() == DialogResult.OK)
             {
-                MyTabPage tabPage = (MyTabPage) tabControl1.SelectedTab;
-                System.IO.File.WriteAllText(@"C:\Users\Ionut\Desktop\TP\Notepad\text.txt",
-                    tabPage.NewPanel.TextBox1.Text);
+                using (StreamWriter sw = new StreamWriter(savefile.FileName))
+                    sw.Write(tabPage.NewPanel.TextBox1.Text);
             }
         }
     }
