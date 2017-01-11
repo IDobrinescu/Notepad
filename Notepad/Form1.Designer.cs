@@ -36,6 +36,7 @@
             this.panel1 = new Notepad.MyPanel();
             this.textBox1 = new Notepad.SyncTextBox();
             this.textBox2 = new Notepad.SyncTextBox();
+            this.tabPage1 = new MyTabPage(panel1);
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
