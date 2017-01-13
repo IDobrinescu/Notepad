@@ -10,11 +10,11 @@ namespace Notepad
 {
    class MyTabPage:TabPage
    {
-      public MyPanel NewPanel;
+      public MyPanel MyPanel { get; set; }
 
       public MyTabPage(MyPanel p)
       {
-          NewPanel = p;
+          MyPanel = p;
       }
    }
 }
