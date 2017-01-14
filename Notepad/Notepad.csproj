@@ -49,6 +49,7 @@
     <Compile Include="CustomTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Edit.cs" />
     <Compile Include="FindForm.cs">
       <SubType>Form</SubType>
     </Compile>

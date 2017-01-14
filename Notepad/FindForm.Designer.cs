@@ -28,7 +28,7 @@
       private void InitializeComponent()
       {
          this.findTextBox = new System.Windows.Forms.TextBox();
-         this.button1 = new System.Windows.Forms.Button();
+         this.findButton = new System.Windows.Forms.Button();
          this.replaceButton = new System.Windows.Forms.Button();
          this.replaceTextBox = new System.Windows.Forms.TextBox();
          this.SuspendLayout();
@@ -40,15 +40,15 @@
          this.findTextBox.Size = new System.Drawing.Size(100, 20);
          this.findTextBox.TabIndex = 0;
          // 
-         // button1
+         // findButton
          // 
-         this.button1.Location = new System.Drawing.Point(137, 29);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(71, 20);
-         this.button1.TabIndex = 1;
-         this.button1.Text = "Find";
-         this.button1.UseVisualStyleBackColor = true;
-         this.button1.Click += new System.EventHandler(this.button1_Click);
+         this.findButton.Location = new System.Drawing.Point(137, 29);
+         this.findButton.Name = "findButton";
+         this.findButton.Size = new System.Drawing.Size(71, 20);
+         this.findButton.TabIndex = 1;
+         this.findButton.Text = "Find";
+         this.findButton.UseVisualStyleBackColor = true;
+         this.findButton.Click += new System.EventHandler(this.button1_Click);
          // 
          // replaceButton
          // 
@@ -74,7 +74,7 @@
          this.ClientSize = new System.Drawing.Size(228, 103);
          this.Controls.Add(this.replaceTextBox);
          this.Controls.Add(this.replaceButton);
-         this.Controls.Add(this.button1);
+         this.Controls.Add(this.findButton);
          this.Controls.Add(this.findTextBox);
          this.Name = "FindForm";
          this.Text = "FindForm";
@@ -86,7 +86,7 @@
       #endregion
 
       private System.Windows.Forms.TextBox findTextBox;
-      private System.Windows.Forms.Button button1;
+      private System.Windows.Forms.Button findButton;
       private System.Windows.Forms.Button replaceButton;
       private System.Windows.Forms.TextBox replaceTextBox;
    }
