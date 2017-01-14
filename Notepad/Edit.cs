@@ -13,24 +13,22 @@ namespace Notepad
       private Form1 _searchInFrm;
       private FindForm _searchForFrm;
       private Match _match;
-
+      private MyTabPage curentTabPage = null;
+      
       public Edit(Form1 searchInFrm, FindForm searchForFrm)
       {
          _searchInFrm = searchInFrm;
          _searchForFrm = searchForFrm;
       }
 
-      public void Find()
+      public void SelectText()
       {
-         MyTabPage curenTabPage = (MyTabPage)_searchInFrm.tabControl.SelectedTab;
-         if (_match == null)
+         if (_match != null)
          {
-            Regex regex = new Regex(_searchForFrm.FindTextBox.Text, RegexOptions.IgnoreCase);
-            _match = regex.Match(curenTabPage.MyPanel.TextBox1.Text);
             if (_match.Success)
             {
-               curenTabPage.MyPanel.TextBox1.SelectionStart = _match.Index;
-               curenTabPage.MyPanel.TextBox1.SelectionLength = _match.Length;
+               curentTabPage.MyPanel.TextBox1.SelectionStart = _match.Index;
+               curentTabPage.MyPanel.TextBox1.SelectionLength = _match.Length;
                _searchInFrm.Focus();
             }
             else
@@ -39,16 +37,23 @@ namespace Notepad
                _match = null;
             }
          }
+      }
+
+      public void Find()
+      {
+         if (_searchInFrm.tabControl.InvokeRequired)
+         {
+            _searchInFrm.tabControl.Invoke(new MethodInvoker(delegate { curentTabPage = (MyTabPage)_searchInFrm.tabControl.SelectedTab; }));
+         }
+         if (_match == null)
+         {
+            Regex regex = new Regex(_searchForFrm.FindTextBox.Text, RegexOptions.IgnoreCase);
+            _match = regex.Match(curentTabPage.MyPanel.TextBox1.Text);
+         }
          else
          {
             _match = _match.NextMatch();
-            if (_match.Success)
-            {
-               curenTabPage.MyPanel.TextBox1.SelectionStart = _match.Index;
-               curenTabPage.MyPanel.TextBox1.SelectionLength = _match.Length;
-               _searchInFrm.Focus();
-            }
-            else
+            if (!_match.Success)
             {
                MessageBox.Show("End of file");
                _match = null;

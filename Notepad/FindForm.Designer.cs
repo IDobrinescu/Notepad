@@ -31,6 +31,7 @@
          this.findButton = new System.Windows.Forms.Button();
          this.replaceButton = new System.Windows.Forms.Button();
          this.replaceTextBox = new System.Windows.Forms.TextBox();
+         this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
          this.SuspendLayout();
          // 
          // findTextBox
@@ -67,6 +68,11 @@
          this.replaceTextBox.Size = new System.Drawing.Size(100, 20);
          this.replaceTextBox.TabIndex = 3;
          // 
+         // backgroundWorker1
+         // 
+         this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+         this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+         // 
          // FindForm
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,5 +95,6 @@
       private System.Windows.Forms.Button findButton;
       private System.Windows.Forms.Button replaceButton;
       private System.Windows.Forms.TextBox replaceTextBox;
+      private System.ComponentModel.BackgroundWorker backgroundWorker1;
    }
 }

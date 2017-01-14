@@ -25,12 +25,22 @@ namespace Notepad
 
       private void button1_Click(object sender, EventArgs e)
       {
-         editor.Find();
+         backgroundWorker1.RunWorkerAsync();
       }
 
       private void replaceButton_Click(object sender, EventArgs e)
       {
         editor.Replace();
+      }
+
+      private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+      {
+         editor.Find();
+      }
+
+      private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+      {
+         editor.SelectText();
       }
    }
 }
