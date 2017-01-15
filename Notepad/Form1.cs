@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -49,9 +42,26 @@ namespace Notepad
          functions.SaveAs();
       }
 
-      private void findToolStripMenuItem_Click( object sender, EventArgs e )
+      private void findToolStripMenuItem_Click(object sender, EventArgs e)
       {
          functions.Find(this);
+      }
+
+      private void panel1_DragEnter(object sender, DragEventArgs e)
+      {
+         e.Effect = DragDropEffects.All;
+      }
+
+      private void panel1_DragDrop(object sender, DragEventArgs e)
+      {
+         MyTabPage tabPage = (MyTabPage) tabControl1.SelectedTab;
+         string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+         if (files != null && files.Length != 0)
+         {
+            tabPage.MyPanel.TextBox1.Text = System.IO.File.ReadAllText(files[0]);
+         }
+         string[] path = files[0].Split('\\');
+         tabPage.Text = path.Last();
       }
    }
 }

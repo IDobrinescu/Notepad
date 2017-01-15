@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +64,17 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions.cs" />
+    <Compile Include="LoginFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFrom.Designer.cs">
+      <DependentUpon>LoginFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyLocalDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyLocalDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MyPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -80,6 +92,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginFrom.resx">
+      <DependentUpon>LoginFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +104,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MyLocalDBDataSet.xsc">
+      <DependentUpon>MyLocalDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MyLocalDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyLocalDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MyLocalDBDataSet.xss">
+      <DependentUpon>MyLocalDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
