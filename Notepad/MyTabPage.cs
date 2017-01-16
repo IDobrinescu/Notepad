@@ -11,10 +11,13 @@ namespace Notepad
    class MyTabPage:TabPage
    {
       public MyPanel MyPanel { get; set; }
+      public Document Document { get; set; }
 
       public MyTabPage(MyPanel p)
       {
-          MyPanel = p;
+         Document = new Document();
+         Document.Name = this.Text;
+         MyPanel = p;
       }
    }
 }

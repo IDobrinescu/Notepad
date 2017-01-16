@@ -10,11 +10,11 @@ namespace Notepad
       private Functions functions;
       internal CustomTabControl tabControl;
 
-      public Form1()
+      public Form1(string userName)
       {
          InitializeComponent();
          tabControl = tabControl1;
-         functions = new Functions(tabControl1);
+         functions = new Functions(tabControl1, userName);
       }
 
       private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,6 +62,25 @@ namespace Notepad
          }
          string[] path = files[0].Split('\\');
          tabPage.Text = path.Last();
+      }
+
+      private void saveToDBToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         functions.SaveToDB();
+      }
+
+
+      private void Form1_Load(object sender, EventArgs e)
+      {
+         // TODO: This line of code loads data into the 'myLocalDBDataSet.FilesTabel' table. You can move, or remove it, as needed.
+         this.filesTabelTableAdapter.Fill(this.myLocalDBDataSet.FilesTabel);
+
+      }
+
+      private void saveAsToDBToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         SaveAsToDB saveForm = new SaveAsToDB(this);
+         saveForm.Show();
       }
    }
 }

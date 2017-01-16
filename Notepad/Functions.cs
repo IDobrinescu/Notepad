@@ -14,16 +14,30 @@ namespace Notepad
       private CustomTabControl tabControl1;
       private MyTabPage _selectedTabPage;
 
-      public Functions(CustomTabControl tabControl1)
+      public Functions(CustomTabControl tabControl1, string userName)
       {
          this.tabControl1 = tabControl1;
          _selectedTabPage = (MyTabPage) tabControl1.SelectedTab;
+         _selectedTabPage.Document.UserName = userName;
+      }
+
+      public void SaveToDB()
+      {
+         
       }
 
       public void Save()
       {
-         MyTabPage tabPage = (MyTabPage)tabControl1.SelectedTab;
-         System.IO.File.WriteAllText( @"H:\work\Notepad\text.txt", tabPage.MyPanel.TextBox1.Text );
+         //MyTabPage tabPage = (MyTabPage) tabControl1.SelectedTab;
+         if (_selectedTabPage.Document.FilePath != null)
+         {
+            System.IO.File.WriteAllText(_selectedTabPage.Document.FilePath, _selectedTabPage.MyPanel.TextBox1.Text);
+            _selectedTabPage.Document.FileText = _selectedTabPage.MyPanel.TextBox1.Text;
+         }
+         else
+         {
+            SaveAs();
+         }
       }
 
       public void MakeNewTab()
@@ -51,9 +65,15 @@ namespace Notepad
          // Process input if the user clicked OK.
          if ( openFileDialog1.ShowDialog() == DialogResult.OK ) {
             // Open the selected file to read.
-            
+
+            _selectedTabPage.Document.FilePath = openFileDialog1.FileName;
+
             _selectedTabPage.MyPanel.TextBox1.Text = System.IO.File.ReadAllText( openFileDialog1.FileName );
+            _selectedTabPage.Document.FileText = _selectedTabPage.MyPanel.TextBox1.Text;
+
             tabControl1.SelectedTab.Text = openFileDialog1.SafeFileName;
+            _selectedTabPage.Document.Name = openFileDialog1.SafeFileName;
+
          }
       }
 
@@ -81,7 +101,7 @@ namespace Notepad
 
       public void SaveAs()
       {
-         MyTabPage tabPage = (MyTabPage)tabControl1.SelectedTab;
+         //MyTabPage tabPage = (MyTabPage)tabControl1.SelectedTab;
          SaveFileDialog savefile = new SaveFileDialog();
          // set a default file name
          savefile.FileName = savefile.FileName;
@@ -90,7 +110,8 @@ namespace Notepad
 
          if ( savefile.ShowDialog() == DialogResult.OK ) {
             using ( StreamWriter sw = new StreamWriter( savefile.FileName ) )
-               sw.Write( tabPage.MyPanel.TextBox1.Text );
+               sw.Write(_selectedTabPage.MyPanel.TextBox1.Text );
+           
          }
          tabControl1.SelectedTab.Text = savefile.FileName;
       }

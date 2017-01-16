@@ -1,4 +1,7 @@
-﻿namespace Notepad
+﻿using System.Windows.Forms;
+using Notepad.MyLocalDBDataSetTableAdapters;
+
+namespace Notepad
 {
    partial class LoginFrom
    {
@@ -6,6 +9,37 @@
       /// Required designer variable.
       /// </summary>
       private System.ComponentModel.IContainer components = null;
+
+      public TextBox IDTextBox
+      {
+         get { return iDTextBox; }
+         set { iDTextBox = value; }
+      }
+
+      public TextBox PasswordTextBox
+      {
+         get { return passwordTextBox; }
+         set { passwordTextBox = value; }
+      }
+
+      public UsersTableTableAdapter UsersTabelTableAdapter
+      {
+         get { return usersTabelTableAdapter; }
+         set { usersTabelTableAdapter = value; }
+      }
+
+      public TextBox IdSignUpTextBox
+      {
+         get { return idSignUpTextBox; }
+         set { idSignUpTextBox = value; }
+      }
+
+      public TextBox PsSignUpTextBox
+      {
+         get { return psSignUpTextBox; }
+         set { psSignUpTextBox = value; }
+      }
+
 
       /// <summary>
       /// Clean up any resources being used.
@@ -126,6 +160,7 @@
          this.passwordTextBox.Name = "passwordTextBox";
          this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
          this.passwordTextBox.TabIndex = 11;
+         this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
          // 
          // usersTabelBindingSource
          // 
