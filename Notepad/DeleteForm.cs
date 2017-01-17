@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Notepad
 {
-   public partial class SaveAsToDB : Form
+   public partial class DeleteForm : Form
    {
-      private DBControler _dbControler;
-      public SaveAsToDB(Form1 form1)
+      private DBControler dbControler;
+      public DeleteForm(Form1 form1)
       {
          InitializeComponent();
-         _dbControler = new DBControler(form1);
+         dbControler = new DBControler(form1);
       }
 
-      private void filesTabelBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+      private void filesTableBindingNavigatorSaveItem_Click(object sender, EventArgs e)
       {
          this.Validate();
          this.filesTableBindingSource.EndEdit();
@@ -27,18 +27,16 @@ namespace Notepad
 
       }
 
-      private void SaveAsToDB_Load(object sender, EventArgs e)
+      private void DeleteForm_Load(object sender, EventArgs e)
       {
          // TODO: This line of code loads data into the 'myLocalDBDataSet.FilesTable' table. You can move, or remove it, as needed.
-         this.filesTableTableAdapter.Fill(this.myLocalDBDataSet.FilesTable);
-         // TODO: This line of code loads data into the 'myLocalDBDataSet.FilesTabel' table. You can move, or remove it, as needed.
          this.filesTableTableAdapter.Fill(this.myLocalDBDataSet.FilesTable);
 
       }
 
-      private void SaveBtn_Click(object sender, EventArgs e)
+      private void button1_Click(object sender, EventArgs e)
       {
-         _dbControler.SaveAsToDB(this.fileNameTextBox.Text);
+         dbControler.DeleteFile(textBox1.Text);
          this.Hide();
       }
    }

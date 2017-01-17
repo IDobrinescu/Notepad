@@ -38,14 +38,12 @@ namespace Notepad
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          Notepad.Document document1 = new Notepad.Document();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
          this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.saveToDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.saveAsToDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.openFromDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -57,15 +55,14 @@ namespace Notepad
          this.textBox2 = new Notepad.SyncTextBox();
          this.tabControl1 = new Notepad.CustomTabControl();
          this.myLocalDBDataSet = new Notepad.MyLocalDBDataSet();
-         this.filesTabelBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.filesTableTableAdapter = new Notepad.MyLocalDBDataSetTableAdapters.FilesTableTableAdapter();
          this.tableAdapterManager = new Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager();
+         this.deleteFileFromDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.menuStrip1.SuspendLayout();
          this.panel1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          this.tabControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.myLocalDBDataSet)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.filesTabelBindingSource)).BeginInit();
          this.SuspendLayout();
          // 
          // toolStripMenuItem1
@@ -75,9 +72,9 @@ namespace Notepad
             this.saveToolStripMenuItem,
             this.newFileToolStripMenuItem,
             this.saveAsToolStripMenuItem,
-            this.saveToDBToolStripMenuItem,
             this.saveAsToDBToolStripMenuItem,
-            this.openFromDBToolStripMenuItem});
+            this.openFromDBToolStripMenuItem,
+            this.deleteFileFromDBToolStripMenuItem});
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
          this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
          this.toolStripMenuItem1.Text = "File";
@@ -114,13 +111,6 @@ namespace Notepad
          this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
          this.saveAsToolStripMenuItem.Text = "Save As";
          this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
-         // 
-         // saveToDBToolStripMenuItem
-         // 
-         this.saveToDBToolStripMenuItem.Name = "saveToDBToolStripMenuItem";
-         this.saveToDBToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-         this.saveToDBToolStripMenuItem.Text = "Save to DB";
-         this.saveToDBToolStripMenuItem.Click += new System.EventHandler(this.saveToDBToolStripMenuItem_Click);
          // 
          // saveAsToDBToolStripMenuItem
          // 
@@ -238,12 +228,7 @@ namespace Notepad
          this.myLocalDBDataSet.DataSetName = "MyLocalDBDataSet";
          this.myLocalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
          // 
-         // filesTabelBindingSource
-         // 
-         this.filesTabelBindingSource.DataMember = "FilesTabel";
-         this.filesTabelBindingSource.DataSource = this.myLocalDBDataSet;
-         // 
-         // filesTabelTableAdapter
+         // filesTableTableAdapter
          // 
          this.filesTableTableAdapter.ClearBeforeFill = true;
          // 
@@ -253,6 +238,13 @@ namespace Notepad
          this.tableAdapterManager.FilesTableTableAdapter = this.filesTableTableAdapter;
          this.tableAdapterManager.UpdateOrder = Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
          this.tableAdapterManager.UsersTableTableAdapter = null;
+         // 
+         // deleteFileFromDBToolStripMenuItem
+         // 
+         this.deleteFileFromDBToolStripMenuItem.Name = "deleteFileFromDBToolStripMenuItem";
+         this.deleteFileFromDBToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+         this.deleteFileFromDBToolStripMenuItem.Text = "Delete File from DB";
+         this.deleteFileFromDBToolStripMenuItem.Click += new System.EventHandler(this.deleteFileFromDBToolStripMenuItem_Click);
          // 
          // Form1
          // 
@@ -272,7 +264,6 @@ namespace Notepad
          this.tabPage1.ResumeLayout(false);
          this.tabControl1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.myLocalDBDataSet)).EndInit();
-         //((System.ComponentModel.ISupportInitialize)(this.filesTabelBindingSource)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -292,13 +283,12 @@ namespace Notepad
       private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
       private ToolStripMenuItem editToolStripMenuItem;
       private ToolStripMenuItem findToolStripMenuItem;
-      private ToolStripMenuItem saveToDBToolStripMenuItem;
       private MyLocalDBDataSet myLocalDBDataSet;
-      private BindingSource filesTabelBindingSource;
       private MyLocalDBDataSetTableAdapters.FilesTableTableAdapter filesTableTableAdapter;
       private MyLocalDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
       private ToolStripMenuItem saveAsToDBToolStripMenuItem;
       private ToolStripMenuItem openFromDBToolStripMenuItem;
+      private ToolStripMenuItem deleteFileFromDBToolStripMenuItem;
    }
 }
 

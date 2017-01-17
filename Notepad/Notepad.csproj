@@ -51,6 +51,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DBControler.cs" />
+    <Compile Include="DeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteForm.Designer.cs">
+      <DependentUpon>DeleteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document.cs" />
     <Compile Include="Edit.cs" />
     <Compile Include="FindForm.cs">
@@ -101,6 +107,9 @@
     <Compile Include="SyncTextBox .cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="DeleteForm.resx">
+      <DependentUpon>DeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FindForm.resx">
       <DependentUpon>FindForm.cs</DependentUpon>
     </EmbeddedResource>

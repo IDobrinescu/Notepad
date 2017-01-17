@@ -21,11 +21,6 @@ namespace Notepad
          _selectedTabPage.Document.UserName = userName;
       }
 
-      public void SaveToDB(Form1 form1)
-      {
-         
-      }
-
       public void Save()
       {
          //MyTabPage tabPage = (MyTabPage) tabControl1.SelectedTab;

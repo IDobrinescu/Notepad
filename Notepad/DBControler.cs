@@ -74,10 +74,27 @@ namespace Notepad
             _curentTabPage.MyPanel.TextBox1.Text = _filesTabelTableAdapter.ScalarQuery(FileName, _document.UserName);
             _curentTabPage.Text = FileName;
          }
+      }
 
+      public void SaveAsToDB(string FileName)
+      {
+         _filesTabelTableAdapter.Insert(FileName, _curentTabPage.Document.UserName,
+            _curentTabPage.MyPanel.TextBox1.Text);
+         _curentTabPage.Text = FileName;
+         MessageBox.Show("File saved to Database");
+      }
 
-          
-
+      public void DeleteFile(string FileName)
+      {
+         try
+         {
+            _filesTabelTableAdapter.DeleteQuery(FileName);
+            MessageBox.Show("File deleted");
+         }
+         catch (Exception e)
+         {
+            MessageBox.Show("File does not exist");
+         }
       }
    }
 }

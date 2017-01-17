@@ -64,11 +64,6 @@ namespace Notepad
          tabPage.Text = path.Last();
       }
 
-      private void saveToDBToolStripMenuItem_Click(object sender, EventArgs e)
-      {
-         functions.SaveToDB(this);
-      }
-
 
       private void Form1_Load(object sender, EventArgs e)
       {
@@ -87,6 +82,12 @@ namespace Notepad
       {
          OpenForm openForm = new OpenForm(this);
          openForm.Show();
+      }
+
+      private void deleteFileFromDBToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         DeleteForm deleteForm = new DeleteForm(this);
+         deleteForm.Show();
       }
    }
 }
