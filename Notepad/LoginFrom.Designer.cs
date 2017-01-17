@@ -75,11 +75,14 @@ namespace Notepad
          this.usersTabelBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.usersTabelTableAdapter = new Notepad.MyLocalDBDataSetTableAdapters.UsersTableTableAdapter();
          this.tableAdapterManager = new Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager();
-         this.filesTabelTableAdapter1 = new Notepad.MyLocalDBDataSetTableAdapters.FilesTabelTableAdapter();
+         this.filesTabelTableAdapter1 = new Notepad.MyLocalDBDataSetTableAdapters.FilesTableTableAdapter();
          this.ID = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.idSignUpTextBox = new System.Windows.Forms.TextBox();
          this.psSignUpTextBox = new System.Windows.Forms.TextBox();
+         this.rePassTextBox = new System.Windows.Forms.TextBox();
+         this.label2 = new System.Windows.Forms.Label();
+         this.label5 = new System.Windows.Forms.Label();
          iDLabel = new System.Windows.Forms.Label();
          passwordLabel = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.myLocalDBDataSet)).BeginInit();
@@ -125,7 +128,7 @@ namespace Notepad
          // 
          // createAccBtn
          // 
-         this.createAccBtn.Location = new System.Drawing.Point(288, 150);
+         this.createAccBtn.Location = new System.Drawing.Point(291, 181);
          this.createAccBtn.Name = "createAccBtn";
          this.createAccBtn.Size = new System.Drawing.Size(92, 23);
          this.createAccBtn.TabIndex = 6;
@@ -174,7 +177,7 @@ namespace Notepad
          // tableAdapterManager
          // 
          this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-         this.tableAdapterManager.FilesTabelTableAdapter = null;
+         this.tableAdapterManager.FilesTableTableAdapter = null;
          this.tableAdapterManager.UpdateOrder = Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
          this.tableAdapterManager.UsersTableTableAdapter = this.usersTabelTableAdapter;
          // 
@@ -214,11 +217,39 @@ namespace Notepad
          this.psSignUpTextBox.Size = new System.Drawing.Size(100, 20);
          this.psSignUpTextBox.TabIndex = 15;
          // 
+         // rePassTextBox
+         // 
+         this.rePassTextBox.Location = new System.Drawing.Point(291, 132);
+         this.rePassTextBox.Name = "rePassTextBox";
+         this.rePassTextBox.Size = new System.Drawing.Size(100, 20);
+         this.rePassTextBox.TabIndex = 16;
+         this.rePassTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+         // 
+         // label2
+         // 
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(188, 135);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(97, 13);
+         this.label2.TabIndex = 17;
+         this.label2.Text = "Re-enter Password";
+         // 
+         // label5
+         // 
+         this.label5.AutoSize = true;
+         this.label5.Location = new System.Drawing.Point(289, 165);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(0, 13);
+         this.label5.TabIndex = 18;
+         // 
          // LoginFrom
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(455, 261);
+         this.Controls.Add(this.label5);
+         this.Controls.Add(this.label2);
+         this.Controls.Add(this.rePassTextBox);
          this.Controls.Add(this.psSignUpTextBox);
          this.Controls.Add(this.idSignUpTextBox);
          this.Controls.Add(this.label3);
@@ -253,10 +284,13 @@ namespace Notepad
       private System.Windows.Forms.BindingSource usersTabelBindingSource;
       private MyLocalDBDataSetTableAdapters.UsersTableTableAdapter usersTabelTableAdapter;
       private MyLocalDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-      private MyLocalDBDataSetTableAdapters.FilesTabelTableAdapter filesTabelTableAdapter1;
+      private MyLocalDBDataSetTableAdapters.FilesTableTableAdapter filesTabelTableAdapter1;
       private System.Windows.Forms.Label ID;
       private System.Windows.Forms.Label label3;
       private System.Windows.Forms.TextBox idSignUpTextBox;
       private System.Windows.Forms.TextBox psSignUpTextBox;
+      private TextBox rePassTextBox;
+      private Label label2;
+      private Label label5;
    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Notepad
 {
-   partial class SaveAsToDB
+   partial class OpenForm
    {
       /// <summary>
       /// Required designer variable.
@@ -29,76 +29,41 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         this.fileNameTextBox = new System.Windows.Forms.TextBox();
-         this.label1 = new System.Windows.Forms.Label();
-         this.SaveBtn = new System.Windows.Forms.Button();
          this.myLocalDBDataSet = new Notepad.MyLocalDBDataSet();
-         this.tableAdapterManager = new Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager();
          this.filesTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.filesTableTableAdapter = new Notepad.MyLocalDBDataSetTableAdapters.FilesTableTableAdapter();
-         this.filesTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+         this.tableAdapterManager = new Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager();
          this.filesTableDataGridView = new System.Windows.Forms.DataGridView();
          this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.OpenButton = new System.Windows.Forms.Button();
+         this.textBox1 = new System.Windows.Forms.TextBox();
          ((System.ComponentModel.ISupportInitialize)(this.myLocalDBDataSet)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.filesTableBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.filesTableBindingSource1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.filesTableDataGridView)).BeginInit();
          this.SuspendLayout();
-         // 
-         // fileNameTextBox
-         // 
-         this.fileNameTextBox.Location = new System.Drawing.Point(104, 266);
-         this.fileNameTextBox.Name = "fileNameTextBox";
-         this.fileNameTextBox.Size = new System.Drawing.Size(100, 20);
-         this.fileNameTextBox.TabIndex = 2;
-         // 
-         // label1
-         // 
-         this.label1.AutoSize = true;
-         this.label1.Location = new System.Drawing.Point(44, 269);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(54, 13);
-         this.label1.TabIndex = 3;
-         this.label1.Text = "File Name";
-         // 
-         // SaveBtn
-         // 
-         this.SaveBtn.Location = new System.Drawing.Point(225, 264);
-         this.SaveBtn.Name = "SaveBtn";
-         this.SaveBtn.Size = new System.Drawing.Size(75, 23);
-         this.SaveBtn.TabIndex = 4;
-         this.SaveBtn.Text = "Save";
-         this.SaveBtn.UseVisualStyleBackColor = true;
-         this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
          // 
          // myLocalDBDataSet
          // 
          this.myLocalDBDataSet.DataSetName = "MyLocalDBDataSet";
          this.myLocalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
          // 
-         // tableAdapterManager
-         // 
-         this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-         this.tableAdapterManager.Connection = null;
-         this.tableAdapterManager.FilesTableTableAdapter = null;
-         this.tableAdapterManager.UpdateOrder = Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-         this.tableAdapterManager.UsersTableTableAdapter = null;
-         // 
          // filesTableBindingSource
          // 
+         this.filesTableBindingSource.DataMember = "FilesTable";
          this.filesTableBindingSource.DataSource = this.myLocalDBDataSet;
-         this.filesTableBindingSource.Position = 0;
          // 
          // filesTableTableAdapter
          // 
          this.filesTableTableAdapter.ClearBeforeFill = true;
          // 
-         // filesTableBindingSource1
+         // tableAdapterManager
          // 
-         this.filesTableBindingSource1.DataMember = "FilesTable";
-         this.filesTableBindingSource1.DataSource = this.myLocalDBDataSet;
+         this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+         this.tableAdapterManager.FilesTableTableAdapter = this.filesTableTableAdapter;
+         this.tableAdapterManager.UpdateOrder = Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+         this.tableAdapterManager.UsersTableTableAdapter = null;
          // 
          // filesTableDataGridView
          // 
@@ -108,11 +73,11 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-         this.filesTableDataGridView.DataSource = this.filesTableBindingSource1;
-         this.filesTableDataGridView.Location = new System.Drawing.Point(33, 25);
+         this.filesTableDataGridView.DataSource = this.filesTableBindingSource;
+         this.filesTableDataGridView.Location = new System.Drawing.Point(12, 12);
          this.filesTableDataGridView.Name = "filesTableDataGridView";
          this.filesTableDataGridView.Size = new System.Drawing.Size(300, 220);
-         this.filesTableDataGridView.TabIndex = 4;
+         this.filesTableDataGridView.TabIndex = 1;
          // 
          // dataGridViewTextBoxColumn1
          // 
@@ -132,21 +97,36 @@
          this.dataGridViewTextBoxColumn3.HeaderText = "Text";
          this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
          // 
-         // SaveAsToDB
+         // OpenButton
+         // 
+         this.OpenButton.Location = new System.Drawing.Point(183, 259);
+         this.OpenButton.Name = "OpenButton";
+         this.OpenButton.Size = new System.Drawing.Size(75, 23);
+         this.OpenButton.TabIndex = 2;
+         this.OpenButton.Text = "Open";
+         this.OpenButton.UseVisualStyleBackColor = true;
+         this.OpenButton.Click += new System.EventHandler(this.OpenButton_Click);
+         // 
+         // textBox1
+         // 
+         this.textBox1.Location = new System.Drawing.Point(65, 262);
+         this.textBox1.Name = "textBox1";
+         this.textBox1.Size = new System.Drawing.Size(100, 20);
+         this.textBox1.TabIndex = 3;
+         // 
+         // OpenForm
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(490, 340);
+         this.ClientSize = new System.Drawing.Size(388, 303);
+         this.Controls.Add(this.textBox1);
+         this.Controls.Add(this.OpenButton);
          this.Controls.Add(this.filesTableDataGridView);
-         this.Controls.Add(this.SaveBtn);
-         this.Controls.Add(this.label1);
-         this.Controls.Add(this.fileNameTextBox);
-         this.Name = "SaveAsToDB";
-         this.Text = "SaveAsToDB";
-         this.Load += new System.EventHandler(this.SaveAsToDB_Load);
+         this.Name = "OpenForm";
+         this.Text = "OpenForm";
+         this.Load += new System.EventHandler(this.OpenForm_Load);
          ((System.ComponentModel.ISupportInitialize)(this.myLocalDBDataSet)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.filesTableBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.filesTableBindingSource1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.filesTableDataGridView)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
@@ -156,16 +136,14 @@
       #endregion
 
       private MyLocalDBDataSet myLocalDBDataSet;
-      private MyLocalDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-      private System.Windows.Forms.TextBox fileNameTextBox;
-      private System.Windows.Forms.Label label1;
-      private System.Windows.Forms.Button SaveBtn;
       private System.Windows.Forms.BindingSource filesTableBindingSource;
       private MyLocalDBDataSetTableAdapters.FilesTableTableAdapter filesTableTableAdapter;
-      private System.Windows.Forms.BindingSource filesTableBindingSource1;
+      private MyLocalDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
       private System.Windows.Forms.DataGridView filesTableDataGridView;
       private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
       private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
       private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+      private System.Windows.Forms.Button OpenButton;
+      private System.Windows.Forms.TextBox textBox1;
    }
 }

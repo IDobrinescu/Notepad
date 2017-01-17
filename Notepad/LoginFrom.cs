@@ -11,6 +11,9 @@ namespace Notepad
       public LoginFrom()
       {
          InitializeComponent();
+         this.PasswordTextBox.PasswordChar = '*';
+         this.PsSignUpTextBox.PasswordChar = '*';
+         this.rePassTextBox.PasswordChar = '*';
       }
 
       private void SignInBtn_Click(object sender, EventArgs e)
@@ -34,6 +37,19 @@ namespace Notepad
          if (e.KeyCode == Keys.Enter)
          {
             DBControler.LogIn(this);
+         }
+      }
+
+      private void textBox1_TextChanged(object sender, EventArgs e)
+      {
+         if (rePassTextBox.Text != psSignUpTextBox.Text)
+         {
+            label5.Text = "Passwords are not the same";
+
+         }
+         else
+         {
+            label5.Text = "Password is corect!";
          }
       }
    }

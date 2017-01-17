@@ -32,9 +32,13 @@ namespace Notepad
 
       protected override void OnMouseClick(MouseEventArgs e)
       {
-         if (closeX.Contains(e.Location)) {
+         if (closeX.Contains(e.Location))
+         {
             this.TabPages.Remove(this.SelectedTab);
-            this.SelectedTab = this.TabPages[TabCount - 1];
+            if (TabPages.Count > 1)
+            {
+               this.SelectedTab = this.TabPages[TabCount - 1];
+            }
          }
       }
    }

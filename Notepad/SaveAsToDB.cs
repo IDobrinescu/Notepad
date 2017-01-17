@@ -22,28 +22,27 @@ namespace Notepad
       private void filesTabelBindingNavigatorSaveItem_Click(object sender, EventArgs e)
       {
          this.Validate();
-         this.filesTabelBindingSource.EndEdit();
+         this.filesTableBindingSource.EndEdit();
          this.tableAdapterManager.UpdateAll(this.myLocalDBDataSet);
 
       }
 
       private void SaveAsToDB_Load(object sender, EventArgs e)
       {
+         // TODO: This line of code loads data into the 'myLocalDBDataSet.FilesTable' table. You can move, or remove it, as needed.
+         this.filesTableTableAdapter.Fill(this.myLocalDBDataSet.FilesTable);
          // TODO: This line of code loads data into the 'myLocalDBDataSet.FilesTabel' table. You can move, or remove it, as needed.
-         this.filesTabelTableAdapter.Fill(this.myLocalDBDataSet.FilesTabel);
-
-      }
-
-      private void label1_Click(object sender, EventArgs e)
-      {
+         this.filesTableTableAdapter.Fill(this.myLocalDBDataSet.FilesTable);
 
       }
 
       private void SaveBtn_Click(object sender, EventArgs e)
       {
          MyTabPage selecteTabPage = (MyTabPage) _form1.tabControl.SelectedTab;
-         filesTabelTableAdapter.Insert(this.fileNameTextBox.Text, selecteTabPage.Document.UserName,
+         filesTableTableAdapter.Insert(this.fileNameTextBox.Text, selecteTabPage.Document.UserName,
             selecteTabPage.MyPanel.TextBox1.Text);
+         MessageBox.Show("File saved to Database");
+         this.Hide();
       }
    }
 }

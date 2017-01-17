@@ -21,7 +21,7 @@ namespace Notepad
          _selectedTabPage.Document.UserName = userName;
       }
 
-      public void SaveToDB()
+      public void SaveToDB(Form1 form1)
       {
          
       }
@@ -44,6 +44,7 @@ namespace Notepad
       {
          MyPanel panel = new MyPanel();
          MyTabPage tab = new MyTabPage( panel );
+         tab.Document.UserName = (tabControl1.SelectedTab as MyTabPage).Document.UserName;
          tab.Controls.Add( panel );
          tab.Text = "New";
          tabControl1.TabPages.Add( tab );

@@ -66,14 +66,14 @@ namespace Notepad
 
       private void saveToDBToolStripMenuItem_Click(object sender, EventArgs e)
       {
-         functions.SaveToDB();
+         functions.SaveToDB(this);
       }
 
 
       private void Form1_Load(object sender, EventArgs e)
       {
          // TODO: This line of code loads data into the 'myLocalDBDataSet.FilesTabel' table. You can move, or remove it, as needed.
-         this.filesTabelTableAdapter.Fill(this.myLocalDBDataSet.FilesTabel);
+         this.filesTableTableAdapter.Fill(this.myLocalDBDataSet.FilesTable);
 
       }
 
@@ -81,6 +81,12 @@ namespace Notepad
       {
          SaveAsToDB saveForm = new SaveAsToDB(this);
          saveForm.Show();
+      }
+
+      private void openFromDBToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         OpenForm openForm = new OpenForm(this);
+         openForm.Show();
       }
    }
 }
