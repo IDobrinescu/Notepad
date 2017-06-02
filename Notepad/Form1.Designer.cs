@@ -46,18 +46,19 @@ namespace Notepad
          this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.saveAsToDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.openFromDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.deleteFileFromDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.menuStrip1 = new System.Windows.Forms.MenuStrip();
          this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.panel1 = new Notepad.MyPanel();
-         tabPage1 = new MyTabPage(panel1);
+         tabPage1= new MyTabPage(panel1);
          this.textBox1 = new Notepad.SyncTextBox();
          this.textBox2 = new Notepad.SyncTextBox();
          this.tabControl1 = new Notepad.CustomTabControl();
          this.myLocalDBDataSet = new Notepad.MyLocalDBDataSet();
          this.filesTableTableAdapter = new Notepad.MyLocalDBDataSetTableAdapters.FilesTableTableAdapter();
          this.tableAdapterManager = new Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager();
-         this.deleteFileFromDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.label1 = new System.Windows.Forms.Label();
          this.menuStrip1.SuspendLayout();
          this.panel1.SuspendLayout();
          this.tabPage1.SuspendLayout();
@@ -125,6 +126,13 @@ namespace Notepad
          this.openFromDBToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
          this.openFromDBToolStripMenuItem.Text = "Open from DB";
          this.openFromDBToolStripMenuItem.Click += new System.EventHandler(this.openFromDBToolStripMenuItem_Click);
+         // 
+         // deleteFileFromDBToolStripMenuItem
+         // 
+         this.deleteFileFromDBToolStripMenuItem.Name = "deleteFileFromDBToolStripMenuItem";
+         this.deleteFileFromDBToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+         this.deleteFileFromDBToolStripMenuItem.Text = "Delete File from DB";
+         this.deleteFileFromDBToolStripMenuItem.Click += new System.EventHandler(this.deleteFileFromDBToolStripMenuItem_Click);
          // 
          // menuStrip1
          // 
@@ -239,12 +247,14 @@ namespace Notepad
          this.tableAdapterManager.UpdateOrder = Notepad.MyLocalDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
          this.tableAdapterManager.UsersTableTableAdapter = null;
          // 
-         // deleteFileFromDBToolStripMenuItem
+         // label1
          // 
-         this.deleteFileFromDBToolStripMenuItem.Name = "deleteFileFromDBToolStripMenuItem";
-         this.deleteFileFromDBToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-         this.deleteFileFromDBToolStripMenuItem.Text = "Delete File from DB";
-         this.deleteFileFromDBToolStripMenuItem.Click += new System.EventHandler(this.deleteFileFromDBToolStripMenuItem_Click);
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(397, 9);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(35, 13);
+         this.label1.TabIndex = 5;
+         this.label1.Text = "label1";
          // 
          // Form1
          // 
@@ -252,6 +262,7 @@ namespace Notepad
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(549, 441);
+         this.Controls.Add(this.label1);
          this.Controls.Add(this.tabControl1);
          this.Controls.Add(this.menuStrip1);
          this.Name = "Form1";
@@ -289,6 +300,7 @@ namespace Notepad
       private ToolStripMenuItem saveAsToDBToolStripMenuItem;
       private ToolStripMenuItem openFromDBToolStripMenuItem;
       private ToolStripMenuItem deleteFileFromDBToolStripMenuItem;
+      private Label label1;
    }
 }
 

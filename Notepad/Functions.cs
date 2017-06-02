@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,10 @@ namespace Notepad
    {
       private CustomTabControl tabControl1;
       private MyTabPage _selectedTabPage;
+      [DllImport("kernel32.dll")]
+      static extern void GetLocalTime(out SYSTEMTIME lpSystemTime);
+
+      private SYSTEMTIME localTime;
 
       public Functions(CustomTabControl tabControl1, string userName)
       {
@@ -21,6 +26,18 @@ namespace Notepad
          _selectedTabPage.Document.UserName = userName;
       }
 
+      public void DateAndTime(Label label1)
+      {
+         GetLocalTime(out localTime);
+         int hour = localTime.wHour;
+         int minute = localTime.wMinute;
+         int day = localTime.wDayOfWeek;
+         int month = localTime.wMonth;
+         int year = localTime.wYear;
+
+         label1.Text = hour + ":" + minute + " " + (EWeekDays)day
+            + "/" + (EMonths)month + "/" + year;
+      }
       public void Save()
       {
          //MyTabPage tabPage = (MyTabPage) tabControl1.SelectedTab;

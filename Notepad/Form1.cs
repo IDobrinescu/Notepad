@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
@@ -10,11 +11,14 @@ namespace Notepad
       private Functions functions;
       internal CustomTabControl tabControl;
 
+      
       public Form1(string userName)
       {
          InitializeComponent();
          tabControl = tabControl1;
          functions = new Functions(tabControl1, userName);
+         functions.DateAndTime(label1);
+
       }
 
       private void openToolStripMenuItem_Click(object sender, EventArgs e)

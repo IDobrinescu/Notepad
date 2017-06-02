@@ -40,6 +40,7 @@
          this.findTextBox.Name = "findTextBox";
          this.findTextBox.Size = new System.Drawing.Size(100, 20);
          this.findTextBox.TabIndex = 0;
+         this.findTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.findTextBox_KeyDown);
          // 
          // findButton
          // 
@@ -67,6 +68,7 @@
          this.replaceTextBox.Name = "replaceTextBox";
          this.replaceTextBox.Size = new System.Drawing.Size(100, 20);
          this.replaceTextBox.TabIndex = 3;
+         this.replaceTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.replaceTextBox_KeyDown);
          // 
          // backgroundWorker1
          // 

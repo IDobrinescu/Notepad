@@ -42,5 +42,22 @@ namespace Notepad
       {
          editor.SelectText();
       }
+
+
+      private void findTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            backgroundWorker1.RunWorkerAsync();
+         }
+      }
+
+      private void replaceTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            editor.Replace();
+         }
+      }
    }
 }

@@ -107,6 +107,7 @@
     <Compile Include="SyncTextBox .cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SYSTEMTIME.cs" />
     <EmbeddedResource Include="DeleteForm.resx">
       <DependentUpon>DeleteForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -52,8 +52,11 @@ namespace Notepad
       {
          try
          {
-            frm.UsersTabelTableAdapter.Insert(frm.IdSignUpTextBox.Text, frm.PsSignUpTextBox.Text);
-            MessageBox.Show("Account Created");
+            if (frm.PsSignUpTextBox.Text == frm.PasswordTextBox.Text)
+            {
+               frm.UsersTabelTableAdapter.Insert(frm.IdSignUpTextBox.Text, frm.PsSignUpTextBox.Text);
+               MessageBox.Show("Account Created");
+            }
          }
          catch (Exception e)
          {

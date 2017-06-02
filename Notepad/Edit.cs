@@ -47,6 +47,7 @@ namespace Notepad
          }
          if (_match == null)
          {
+            //curentTabPage = (MyTabPage)_searchInFrm.tabControl.SelectedTab;
             Regex regex = new Regex(_searchForFrm.FindTextBox.Text, RegexOptions.IgnoreCase);
             _match = regex.Match(curentTabPage.MyPanel.TextBox1.Text);
          }

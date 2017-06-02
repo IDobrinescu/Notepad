@@ -108,7 +108,7 @@ SELECT ID, Password FROM UsersTable WHERE (ID = @ID)</CommandText>
               <Mapping SourceColumn="Text" DataSetColumn="Text" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="MyLocalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery">
+              <DbSource ConnectionRef="MyLocalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE from FilesTable
@@ -119,7 +119,7 @@ where FIleName = @FileName</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="MyLocalDBConnectionString (Settings)" DbObjectName="MyLocalDB.dbo.FilesTable" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery" Modifier="Public" Name="ScalarQuery" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery">
+              <DbSource ConnectionRef="MyLocalDBConnectionString (Settings)" DbObjectName="MyLocalDB.dbo.FilesTable" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery" Modifier="Public" Name="ScalarQuery" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Text
@@ -142,7 +142,7 @@ WHERE        (FileName = @FileName) AND (UserName = @UserName)</CommandText>
   <xs:element name="MyLocalDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MyLocalDBDataSet" msprop:Generator_UserDSName="MyLocalDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="UsersTable" msprop:Generator_TableClassName="UsersTableDataTable" msprop:Generator_TableVarName="tableUsersTable" msprop:Generator_TablePropName="UsersTable" msprop:Generator_RowDeletingName="UsersTableRowDeleting" msprop:Generator_RowChangingName="UsersTableRowChanging" msprop:Generator_RowEvHandlerName="UsersTableRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersTableRowDeleted" msprop:Generator_UserTableName="UsersTable" msprop:Generator_RowChangedName="UsersTableRowChanged" msprop:Generator_RowEvArgName="UsersTableRowChangeEvent" msprop:Generator_RowClassName="UsersTableRow">
+        <xs:element name="UsersTable" msprop:Generator_TableClassName="UsersTableDataTable" msprop:Generator_TableVarName="tableUsersTable" msprop:Generator_RowChangedName="UsersTableRowChanged" msprop:Generator_TablePropName="UsersTable" msprop:Generator_RowDeletingName="UsersTableRowDeleting" msprop:Generator_RowChangingName="UsersTableRowChanging" msprop:Generator_RowEvHandlerName="UsersTableRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersTableRowDeleted" msprop:Generator_RowClassName="UsersTableRow" msprop:Generator_UserTableName="UsersTable" msprop:Generator_RowEvArgName="UsersTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
@@ -162,7 +162,7 @@ WHERE        (FileName = @FileName) AND (UserName = @UserName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FilesTable" msprop:Generator_TableClassName="FilesTableDataTable" msprop:Generator_TableVarName="tableFilesTable" msprop:Generator_TablePropName="FilesTable" msprop:Generator_RowDeletingName="FilesTableRowDeleting" msprop:Generator_RowChangingName="FilesTableRowChanging" msprop:Generator_RowEvHandlerName="FilesTableRowChangeEventHandler" msprop:Generator_RowDeletedName="FilesTableRowDeleted" msprop:Generator_UserTableName="FilesTable" msprop:Generator_RowChangedName="FilesTableRowChanged" msprop:Generator_RowEvArgName="FilesTableRowChangeEvent" msprop:Generator_RowClassName="FilesTableRow">
+        <xs:element name="FilesTable" msprop:Generator_TableClassName="FilesTableDataTable" msprop:Generator_TableVarName="tableFilesTable" msprop:Generator_RowChangedName="FilesTableRowChanged" msprop:Generator_TablePropName="FilesTable" msprop:Generator_RowDeletingName="FilesTableRowDeleting" msprop:Generator_RowChangingName="FilesTableRowChanging" msprop:Generator_RowEvHandlerName="FilesTableRowChangeEventHandler" msprop:Generator_RowDeletedName="FilesTableRowDeleted" msprop:Generator_RowClassName="FilesTableRow" msprop:Generator_UserTableName="FilesTable" msprop:Generator_RowEvArgName="FilesTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" minOccurs="0">
